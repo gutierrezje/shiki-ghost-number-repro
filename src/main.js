@@ -1,31 +1,31 @@
 import "./style.css";
-import loader from "@monaco-editor/loader";
+import "monaco-editor/min/vs/editor/editor.main.css";
+import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
+import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
+
+self.MonacoEnvironment = {
+  getWorker() {
+    return new EditorWorker();
+  },
+};
 
 const editorRoot = document.getElementById("editor");
 if (!editorRoot) {
   throw new Error("Missing #editor element.");
 }
 
-loader.config({
-  paths: {
-    vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs",
-  },
-});
-
-loader.init().then((monaco) => {
-  monaco.editor.create(editorRoot, {
-    value: [
-      "\\documentclass{article}",
-      "\\begin{document}",
-      "Hello world.",
-      "\\end{document}",
-      "%",
-    ].join("\n"),
-    language: "latex",
-    theme: "vs",
-    lineNumbers: "on",
-    minimap: { enabled: false },
-    scrollBeyondLastLine: false,
-    fontSize: 13,
-  });
+monaco.editor.create(editorRoot, {
+  value: [
+    "\\documentclass{article}",
+    "\\begin{document}",
+    "Hello world.",
+    "\\end{document}",
+    "%",
+  ].join("\n"),
+  language: "latex",
+  theme: "vs",
+  lineNumbers: "on",
+  minimap: { enabled: false },
+  scrollBeyondLastLine: false,
+  fontSize: 13,
 });
