@@ -13,3 +13,5 @@ Notes:
 - Monaco CSS is bundled locally via
   `import "monaco-editor/min/vs/editor/editor.main.css";` in src/main.js so Vite/Tailwind
   process vendor styles instead of CDN-loading them.
+- index.html includes a hidden `<div class="list-item">` to force Tailwind to emit the
+  list-item utility rules that introduce `content: counter(line-number)`.
