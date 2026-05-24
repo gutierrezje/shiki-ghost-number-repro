@@ -1,5 +1,4 @@
 import "./style.css";
-import "monaco-editor/min/vs/editor/editor.main.css";
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
 import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
 

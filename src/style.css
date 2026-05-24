@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "monaco-editor/min/vs/editor/editor.main.css";
 
 :root {
   color-scheme: light;
