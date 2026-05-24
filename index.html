@@ -6,26 +6,7 @@
     <title>Tailwind v4 Monaco gutter repro</title>
   </head>
   <body class="bg-slate-950 text-slate-100">
-    <ul class="hidden" aria-hidden="true"><li></li></ul>
-    <main class="app">
-      <header>
-        <h1>Tailwind v4 Monaco gutter ghost numbers</h1>
-        <p>
-          Monaco is bundled locally (not via CDN) so Vite processes its CSS. With Tailwind
-          v4 preflight enabled, a duplicated “1” overlays every gutter row in dark mode.
-        </p>
-      </header>
-
-      <section class="card">
-        <div id="editor" class="editor" aria-label="Monaco editor repro"></div>
-      </section>
-
-      <p class="note">
-        Expected: each gutter row shows the actual line number plus an extra “1” overlay.
-        Comment out <code>@import "tailwindcss";</code> in <code>src/style.css</code> and
-        the ghost numbers disappear.
-      </p>
-    </main>
-    <script type="module" src="/src/main.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
