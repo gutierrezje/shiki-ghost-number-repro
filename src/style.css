@@ -1,55 +1,15 @@
-@import "tailwindcss";
-
-:root {
-  color-scheme: light;
-}
-
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-.app {
-  max-width: 960px;
-  margin: 32px auto;
-  padding: 0 24px 32px;
-}
-
-h1 {
-  margin: 0 0 8px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-p {
-  margin: 0 0 16px;
-  color: #94a3b8;
-  font-size: 14px;
-}
-
-.card {
-  border: 1px solid #1f2937;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #0b1220;
+main {
   padding: 16px;
+  display: grid;
+  gap: 16px;
 }
 
-.editor {
+#monaco {
   height: 320px;
-}
-
-.note {
-  margin-top: 16px;
-  font-size: 13px;
-  color: #94a3b8;
-}
-
-.note code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 12px;
-  padding: 2px 4px;
-  border-radius: 6px;
-  background: #0f172a;
-  color: #e2e8f0;
+  border: 1px solid #d1d5db;
 }

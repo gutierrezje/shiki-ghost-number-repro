@@ -14,10 +14,10 @@ npm run dev
 Open http://localhost:5173. You should see Monaco’s gutter show an extra “1” overlay on
 every row.
 
-To confirm the source, remove the runtime CSS injection in `src/App.jsx`:
+To confirm the source, remove `react-shiki` and its import in `src/App.jsx`:
 
 ```tsx
-import shikiCss from "react-shiki/css?inline";
+import ShikiHighlighter from "react-shiki";
 ```
 
 With that removed, the ghost number disappears.
