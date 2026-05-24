@@ -4,11 +4,13 @@ Steps:
 3) Open http://localhost:5173
 
 Expected:
-- Each react-shiki gutter row shows the actual line number plus an extra “1” overlay.
-- Comment out @import "tailwindcss"; in src/style.css and restart dev server; the ghost
-  numbers disappear.
+- Monaco’s gutter shows the actual line number plus an extra “1” overlay.
+- Remove the runtime CSS injection in src/App.jsx (react-shiki/css?inline) and reload
+  to confirm the ghost disappears.
 The code block uses the github-dark theme so the repro matches the dark UI.
 
 Notes:
-- react-shiki ships CSS for line numbers; we import it via `@import "react-shiki/css";`
-  in src/style.css so Tailwind preflight is active alongside the line-number styles.
+- react-shiki/core is used with a custom highlighter to match BigTex usage.
+- react-shiki CSS is injected at runtime (style tag) to mirror styleInject behavior.
+- Monaco renders on the same page and uses `.line-numbers`, which collides with the
+  global `.line-numbers::before` rule in react-shiki's features.css.
