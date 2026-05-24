@@ -14,6 +14,9 @@ npm run dev
 Open http://localhost:5173. You should see Monaco’s gutter show an extra “1” overlay on
 every row.
 
+This page intentionally renders two editors: the react-shiki code block (source of the
+global `.line-numbers::before` rule) and Monaco (the colliding target).
+
 To confirm the source, remove `react-shiki` and its import in `src/App.jsx`:
 
 ```tsx
