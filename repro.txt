@@ -8,6 +8,8 @@ Expected:
 - Comment out @import "tailwindcss"; in src/style.css and restart dev server; the ghost
   numbers disappear.
 The editor runs with the vs-dark theme so the repro matches the dark UI.
+The markup includes a hidden <ul> plus the same global list reset used in bigtex to
+activate the preflight list counter behavior.
 
 Notes:
 - Monaco CSS is bundled locally via `@import "monaco-editor/min/vs/editor/editor.main.css";`
