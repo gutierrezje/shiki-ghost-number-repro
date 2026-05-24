@@ -23,7 +23,7 @@ monaco.editor.create(editorRoot, {
     "%",
   ].join("\n"),
   language: "latex",
-  theme: "vs",
+  theme: "vs-dark",
   lineNumbers: "on",
   minimap: { enabled: false },
   scrollBeyondLastLine: false,

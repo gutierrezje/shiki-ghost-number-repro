@@ -7,6 +7,7 @@ Expected:
 - Each Monaco gutter row shows the actual line number plus an extra “1” overlay.
 - Comment out @import "tailwindcss"; in src/style.css and restart dev server; the ghost
   numbers disappear.
+The editor runs with the vs-dark theme so the repro matches the dark UI.
 
 Notes:
 - Monaco CSS is bundled locally via
