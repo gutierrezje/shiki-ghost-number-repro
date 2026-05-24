@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monaco gutter ghost number repro</title>
+    <style>
+      :root {
+        --border: #d7dbe3;
+        --surface: #f8f9fb;
+        --gutter: #eef1f6;
+        --text: #0f1115;
+        --text-muted: #5f6773;
+        --accent: #5b7cfa;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 24px;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        color: var(--text);
+        background: #f2f4f8;
+      }
+
+      h1 {
+        font-size: 18px;
+        margin: 0 0 8px;
+      }
+
+      p {
+        margin: 0 0 16px;
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      .editor {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        background: white;
+      }
+
+      .gutter {
+        background: var(--gutter);
+        padding: 10px 0;
+      }
+
+      .line {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 24px;
+        padding-right: 10px;
+        font-size: 12px;
+        color: var(--text-muted);
+        font-variant-numeric: tabular-nums;
+        position: relative;
+      }
+
+      .code {
+        padding: 10px 12px;
+        background: var(--surface);
+      }
+
+      .code-line {
+        height: 24px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Simulate Tailwind v4-generated `content: counter(line-number)` rule. */
+      .gutter {
+        counter-reset: line-number 1;
+      }
+
+      .line::before {
+        content: counter(line-number);
+        position: absolute;
+        left: 6px;
+        color: var(--accent);
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Monaco gutter ghost number repro</h1>
+    <p>Each row shows the real line number plus the extra “1” overlay.</p>
+
+    <div class="editor">
+      <div class="gutter">
+        <div class="line">1</div>
+        <div class="line">2</div>
+        <div class="line">3</div>
+        <div class="line">4</div>
+        <div class="line">5</div>
+      </div>
+      <div class="code">
+        <div class="code-line">\\documentclass{article}</div>
+        <div class="code-line">\\begin{document}</div>
+        <div class="code-line">Hello world.</div>
+        <div class="code-line">\\end{document}</div>
+        <div class="code-line">%</div>
+      </div>
+    </div>
+  </body>
+</html>
